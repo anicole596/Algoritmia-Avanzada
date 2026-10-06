@@ -3,5 +3,6 @@ project(02_BuildingBlocks)
 
 #set(CMAKE_CXX_STANDARD 20)
 
-add_executable(02_BuildingBlocks main.cpp)
+add_executable(02_BuildingBlocks main.cpp
+        Helpers.h)
 
