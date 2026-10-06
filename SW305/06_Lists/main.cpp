@@ -76,9 +76,73 @@ static void list_example_2(){
     print_container("l2 (after 2nd splice):", l2);
 }
 
+static void list_example_3() {
+    std::list<int> l1{10, 20, 30, 40, 50, 60,70, 80};
+    std::list<int> l2{-1, -2, -3, -4, -5, -6, -7, -8};
+    std::list<int> l3(l1.size());
+    if (l1.size() != l2.size()) {
+        throw std::runtime_error("Las longitudes de las listas deben ser iguales");
+    }
+    print_container("l1 (initial values):", l1);
+    print_container("l2 (initial values):", l2);
+    print_container("l3 (initial values):", l3);
+
+    // iteradores
+    auto it1 = l1.cbegin();
+    auto it2 = l2.cbegin();
+    auto it3 = l3.begin();
+    for (; it1 !=l1.cend(); ++it1, ++it2) {
+        *it3++ = *it1 + *it2; //el ++ trae el siguiente puntero
+    }
+    print_container("l3 (after clear)", l3);
+}
+
+static void list_example_4() {
+    std::list<std::string> l1{};
+    std::list<std::string> l2{};
+    l1.emplace_back("Peru");
+    l2.emplace_back("Argentina");
+    l1.emplace_front("Chile");
+    l2.emplace_front("Brazil");
+    l1.emplace_back("Uruguay");
+    l2.emplace_back("Paraguay");
+    l1.emplace_front("Colombia");
+    l2.emplace_front("Ecuador");
+    l1.emplace_back("Bolivia");
+    l2.emplace_back("Venezuela");
+    l1.emplace_front("Paraguay");
+    l2.emplace_front("Costa Rica");
+    l1.emplace_back("Nicaragua");
+    l2.emplace_back("Guyana");
+    l1.emplace_front("Guyana Francesa");
+    l2.emplace_front("Suriman");
+
+    //print
+    print_container("l1 (initial values)", l1);
+    print_container("l2 (initial values)", l2);
+
+    //list::sort
+    l1.sort();
+    l2.sort();
+    print_container("l1 (after sort)", l1);
+    print_container("l2 (after sort)", l2);
+
+    //list::merge
+    l1.merge(l2);
+    print_container("l1 (after merge)", l1);
+    print_container("l2 (after merge)", l2);
+
+    //list::reverse
+    l1.reverse();
+    print_container("l1 (after reverse)", l1);
+
+}
+
 int main() {
     std::cout <<"List !!!" << std::endl;
     //list_example_1();
-    list_example_2();
+    //list_example_2();
+    //list_example_3();
+    list_example_4();
     return 0;
 }
