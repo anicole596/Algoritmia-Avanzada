@@ -84,7 +84,53 @@ static void deque_example_3() {
     std::cout << std::format("d1 >= d2: {}", d1 >= d2) << std::endl;
 }
 
-static void deque_example_4() {}
+static void deque_example_4() {
+    // initialized deque of strings
+    std::deque<std::string> d1{"Ene", "Feb", "Mar", "Abr", "May", "Jun"};
+    print_container("d1 (initial values):", d1);
+
+    // using append_range (C++23)
+    std::array<std::string, 6> array1{"Jul", "Ago", "Sep", "Oct", "Nov", "Dec"};
+
+    // this code block confirms compiler support for append_range().
+#ifdef __cpp_lib_containers_ranges
+    d1.append_range(array1);
+#else
+    std::cout << "C++20" << std::endl;
+    d1.insert(d1.end(), array1.begin(), array1.end());
+#endif
+
+    print_container("d1 after append:", d1);
+
+    // using std::sort
+    // std::sort(d1.begin(), d1.end());
+    std::ranges::sort(d1);
+    print_container("d1 after sort using operator< :", d1);
+
+    // sort with a function object
+    // std::sort(d1.begin(), d1.end(), std::greater<>());
+    std::ranges::sort(d1, std::greater<>());
+    print_container("d1 after sort using operator> :", d1);
+
+    // using std::ranges::sort
+    std::deque d2{d1};
+    std::ranges::sort(d2);
+    print_container("d2 after ranges::sort using operator< :", d2);
+
+    // using std::ranges::sort with a predicate
+    std::ranges::sort(d2, std::greater<>());
+    print_container("d2 after ranges::sort using operator> :", d2);
+
+    // using relational operations
+    // These operations perform lexicographical comparisons.
+    std::cout << std::format("d1 == d2: {:s}", d1 == d2) << std::endl;
+    std::cout << std::format("d1 <= d2: {:s}", d1 <= d2) << std::endl;
+    std::cout << std::format("d1 >= d2: {:s}", d1 >= d2) << std::endl;
+
+    // swap
+    std::swap(d1[5], d1[7]);
+    print_container("d1 after swap :", d1);
+}
 
 static void deque_example_5() {
     constexpr size_t epl_max{10};
