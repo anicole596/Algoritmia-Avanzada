@@ -7,7 +7,7 @@ static void array_example_1() {
     std::array <int, 9> x_vals {100, 200, 300, 400, 500, 600, 700, 800, 900} ;
     std::cout << "x_vals[0] "<< std::endl;
 
-    // Para todo tipo de contenedo
+    // Para todo tipo de contenido
     for (int i = 0; i < x_vals.size(); i++) {
         std::cout << x_vals.at(i) << " ";
     }
@@ -58,8 +58,8 @@ static void array_example_2(){
 int main() {
 
     std::cout << "Arrays!!! "<< std::endl;
-    //array_example_1();
-    array_example_2();
+    array_example_1();
+    //array_example_2();
 
     return 0;
 }

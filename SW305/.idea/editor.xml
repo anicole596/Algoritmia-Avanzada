@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BackendCodeEditorSettings">
+    <option name="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=DEFBB323_002DFBFC_002D5E13_002DBCD0_002DAAA0DAFF7113_002Fd_003A03_005FArrays_002Ff_003Amain_002Ecpp/@EntryIndexedValue" value="ExplicitlyExcluded" type="string" />
     <option name="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=DEFBB323_002DFBFC_002D5E13_002DBCD0_002DAAA0DAFF7113_002Fd_003A05_005FDeque_002Ff_003Amain_002Ecpp/@EntryIndexedValue" value="ForceIncluded" type="string" />
     <option name="/Default/CodeInspection/Highlighting/InspectionSeverities/=CDeclarationWithImplicitIntType/@EntryIndexedValue" value="WARNING" type="string" />
     <option name="/Default/CodeInspection/Highlighting/InspectionSeverities/=CommentTypo/@EntryIndexedValue" value="DO_NOT_SHOW" type="string" />
