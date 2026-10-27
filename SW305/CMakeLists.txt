@@ -11,5 +11,7 @@ add_subdirectory(03_Arrays)
 add_subdirectory(04_Vectors)
 add_subdirectory(05_Deque)
 add_subdirectory(06_Lists)
+add_subdirectory(07_Set)
+add_subdirectory(08_Map)
 
 
