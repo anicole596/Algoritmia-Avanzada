@@ -8,16 +8,18 @@
 #include <iostream>
 
 template <typename T>
-static void print_container(const char *msg, T &container, size_t epl_max = 0) {
+static void print_container(const char *msg, const T &container, size_t epl_max = 0) {
     if (msg != nullptr) {
         std::cout << msg << std::endl;
     }
 
+    if (container.empty()) {
+        std::cout << "<empty>" <<std::endl;
+    }
+
     size_t epl{};
-    size_t num_elem{};
 
     for (const auto &e : container) {
-        ++num_elem;
         std::cout << e << " ";
 
         if (epl_max != 0) {
@@ -27,8 +29,12 @@ static void print_container(const char *msg, T &container, size_t epl_max = 0) {
         }
     }
 
-    if (num_elem == 0) {
-        std::cout << "<empty>" << std::endl;
+    //if (num_elem == 0) {
+       // std::cout << "<empty>" << std::endl;
+    //}
+
+    if (epl_max == 0 ||container.size() % epl_max != 0) {
+        std::cout << std::endl;
     }
 
     std::cout << std::endl;
