@@ -42,12 +42,26 @@ static void print_container(const char *msg, const T &container, size_t epl_max 
 }
 
 template <typename T, typename U>
-void print_multimap(const char *msg, const std::multimap<T, U> &container, const U &epl_max = 0) {
-    if (msg != nullptr) {std::cout << msg << std::endl;}
-    if (container.empty()) {std::cout << "<empty>" <<std::endl;return;}
-    size_t epl {0};
-    for (const auto &[key, value] : container) {
-        std::cout << std::format("({}, {}) ", key, value);
+void print_multimap(const char* msg,const std::multimap<T, U>& container, size_t epl_max = 0) {
+
+    // Print the message if one was provided.
+    if (msg != nullptr) {
+        std::cout << msg << std::endl;
+    }
+
+    // Indicate that the multimap is empty and stop printing.
+    if (container.empty()) {
+        std::cout << "<empty>" << std::endl;
+        return;
+    }
+
+    // Count the pairs printed to control line breaks.
+    size_t epl{0};
+
+    for (const auto& [key, value] : container) {
+        std::cout << std::format("({}, {}) ", key, value) ;
+
+        // Start a new line after each group of epl_max pairs.
         if (epl_max != 0) {
             if (++epl %epl_max == 0) {
                 std::cout << std::endl;
