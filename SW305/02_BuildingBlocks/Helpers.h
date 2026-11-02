@@ -41,6 +41,8 @@ static void print_container(const char *msg, const T &container, size_t epl_max 
     std::cout << std::endl;
 }
 
+// Print each multimap entry as a (key, value) pair.
+// Set epl_max to 0 to print all pairs on one line.
 template <typename T, typename U>
 void print_multimap(const char* msg,const std::multimap<T, U>& container, size_t epl_max = 0) {
 
