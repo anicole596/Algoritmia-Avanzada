@@ -121,9 +121,12 @@ static void map_example_2() {
     std::array<std::string_view, 4> keys{"ZHR", "LAK", "MCD", "AKL"};
     for (const auto& key : keys) {
         std::cout << std::format("key: {}", key) << std::endl;
-        auto iter = m1.find(key);
-        if (iter != m1.end()) {
-            std::cout << std::format("found [[{}, {}]", iter->first, iter-->second) << std::endl;
+
+        //auto iter = m1.find(key);
+        if (auto iter = m1.find(key); iter != m1.end()) {
+            std::cout << std::format("found [[{}, {}]", iter->first, iter->second) << std::endl;
+        }else {
+            std::cout << std::format("not found [{}]", key) << std::endl;
         }
     }
 }
